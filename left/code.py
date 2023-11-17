@@ -44,19 +44,26 @@ LEFTSPACE =KC.SPACE
 RIGHTSPACE = KC.SPACE
 combos.combos= [
     Chord((LEFTSPACE,RIGHTSPACE),KC.ENTER),
-    Chord((KC.G,KC.F),KC.ESCAPE),
-    Chord((KC.H,KC.J),KC.ESCAPE),
+    Chord((KC.D,KC.F),KC.ESCAPE),
+    Chord((KC.K,KC.J),KC.ESCAPE),
     Chord((KC.X,KC.C),KC.TAB),
-    Chord((KC.DOT,KC.SLASH),KC.ENTER),
-    Chord((KC.M,KC.V),KC.CW)
+    Chord((KC.DOT,KC.SLASH),KC.ENTER),   
+    Chord((KC.M,KC.J),KC.RSFT),
+    Chord((KC.COMMA,KC.K),KC.RCTRL),
+    Chord((KC.DOT,KC.L),KC.RALT),
 ]
 
-
 keyboard.modules.append(split)
+
+UNDO = KC.LCTRL(KC.Y)
 LGUI = KC.HT(KC.Z,KC.LGUI)
 LALT = KC.HT(KC.X, KC.LALT)
 LCTL = KC.HT(KC.C, KC.LCTRL)
 LSFT = KC.HT(KC.V, KC.LSFT)
+
+
+
+
 
 RGUI = KC.HT(KC.SLASH,KC.RGUI)
 RALT = KC.HT(KC.DOT, KC.RALT)
@@ -64,16 +71,24 @@ RCTL = KC.HT(KC.COMMA, KC.RCTRL)
 RSFT = KC.HT(KC.M, KC.RSFT)
 NAVSPACE = KC.LT(1, LEFTSPACE) 
 
-NUMTOG= KC.TG(2) 
-NUMTAB = KC.L
+NUMTOG= KC.TG(2)
+ 
+NAVTAB = KC.LT(1,KC.TAB)
 NUMLAYER = KC.HT(KC.TAB,KC.TG(2))
 NO = KC.NO
 TP = KC.TRANSPARENT;
+
+SFT_TD= KC.TD(
+    KC.LSFT,
+    KC.CW,
+    KC.CAPS,
+    )
+
 keyboard.keymap = [
     [  KC.Q  ,  KC.W  ,  KC.E  ,  KC.R  ,  KC.T ,KC.Y  ,  KC.U  ,  KC.I  ,  KC.O  ,  KC.P ,
       KC.A   , KC.S  , KC.D,  KC.F  ,  KC.G , KC.H  ,  KC.J ,  KC.K  ,  KC.L  ,  KC.SCOLON , 
-      LGUI  ,  LALT  , LCTL,   LSFT,    KC.B, KC.N  , RSFT  ,  RCTL  , KC.DOT   , KC.SLASH    ,
-       KC.NO  ,  KC.NO  ,  KC.ESCAPE  ,  KC.TAB  ,  LEFTSPACE, RIGHTSPACE,  KC.BSPACE  ,  KC.DELETE  ,  KC.NO  ,  KC.NO,
+      LGUI  ,  LALT  , LCTL,   KC.V,    KC.B, KC.N  , KC.M  ,  KC.COMMA  , KC.DOT   , KC.SLASH    ,
+       KC.NO  ,  KC.NO  ,  SFT_TD ,  NAVTAB  ,  LEFTSPACE, RIGHTSPACE,  KC.BSPACE  ,  KC.DELETE  ,  KC.NO  ,  KC.NO,
     ] ,             
     [  TP, TP, TP, TP, TP, TP, TP, TP, TP, TP,
        TP, TP, TP, TP, TP, KC.LEFT, KC.DOWN , KC.UP, KC.RIGHT, TP,
@@ -94,10 +109,10 @@ keyboard.keymap = [
     ]
     ,
      [ 
-        TP  ,  KC.F7  ,  TP  ,  TP  , TP  ,            TP  ,  TP  ,  TP  ,  TP  , TP  ,
-        TP  ,  TP  ,  TP  ,  TP  , TP  ,            TP  ,  TP  ,  TP  ,  TP  , TP  ,
-        TP  ,  TP  ,  TP  ,  TP  , TP  ,            TP  ,  TP  ,  TP  ,  TP  , TP  ,
-        TP  ,  TP  ,  TP  ,  TP  , TP  ,            TP  ,  TP  ,  TP  ,  TP  , TP  ,
+        KC.F12  ,  KC.F7  ,  KC.F8  ,  KC.F9  , TP  ,            TP  ,  TP  ,  TP  ,  TP  , TP  ,
+        KC.F11  ,  KC.F4  ,  KC.F5  ,  KC.F6  , TP  ,            TP  ,  TP  ,  TP  ,  TP  , TP  ,
+        KC.F10  ,  KC.F1  ,  KC.F2  ,  KC.F3  , TP  ,            TP  ,  TP  ,  TP  ,  TP  , TP  ,
+        TP      ,  TP     ,  TP     ,  TP     , TP  ,            TP  ,  TP  ,  TP  ,  TP  , TP  ,
     ]
 ]
 
