@@ -46,11 +46,16 @@ combos.combos= [
     Chord((LEFTSPACE,RIGHTSPACE),KC.ENTER),
     Chord((KC.D,KC.F),KC.ESCAPE),
     Chord((KC.K,KC.J),KC.ESCAPE),
+    Chord((KC.F,KC.J),KC.ESCAPE),
     Chord((KC.X,KC.C),KC.TAB),
-    Chord((KC.DOT,KC.SLASH),KC.ENTER),   
-    Chord((KC.M,KC.J),KC.RSFT),
-    Chord((KC.COMMA,KC.K),KC.RCTRL),
-    Chord((KC.DOT,KC.L),KC.RALT),
+    Chord((KC.DOT,KC.SCOLON),KC.ENTER),   
+    Chord((KC.DOT,KC.SLASH),KC.RSFT),   
+    Chord((KC.L,KC.SCOLON),KC.RCTRL),
+    Chord((KC.DOT,KC.COMMA),KC.RALT),
+    
+    Chord((KC.SCOLON,KC.SLASH),KC.RSFT(KC.RCTL)),   
+    Chord((KC.SCOLON,KC.COMMA),KC.RCTRL(KC.RALT)),
+    Chord((KC.DOT,KC.COMMA,KC.SLASH),KC.RALT(KC.RSFT)),
 ]
 
 keyboard.modules.append(split)
@@ -78,36 +83,41 @@ NUMLAYER = KC.HT(KC.TAB,KC.TG(2))
 NO = KC.NO
 TP = KC.TRANSPARENT;
 
+FNLAYER = KC.LT(4,KC.DELETE) 
+NUMLAYER = KC.LT(2,KC.BSPACE)
 SFT_TD= KC.TD(
     KC.LSFT,
-    KC.CW,
-    KC.CAPS,
+    KC.CW
     )
 
 keyboard.keymap = [
     [  KC.Q  ,  KC.W  ,  KC.E  ,  KC.R  ,  KC.T ,KC.Y  ,  KC.U  ,  KC.I  ,  KC.O  ,  KC.P ,
       KC.A   , KC.S  , KC.D,  KC.F  ,  KC.G , KC.H  ,  KC.J ,  KC.K  ,  KC.L  ,  KC.SCOLON , 
       LGUI  ,  LALT  , LCTL,   KC.V,    KC.B, KC.N  , KC.M  ,  KC.COMMA  , KC.DOT   , KC.SLASH    ,
-       KC.NO  ,  KC.NO  ,  SFT_TD ,  NAVTAB  ,  LEFTSPACE, RIGHTSPACE,  KC.BSPACE  ,  KC.DELETE  ,  KC.NO  ,  KC.NO,
+       KC.NO  ,  KC.NO  ,  SFT_TD ,  NAVTAB  ,  LEFTSPACE, RIGHTSPACE,  NUMLAYER  ,  FNLAYER  ,  KC.NO  ,  KC.NO,
     ] ,             
     [  TP, TP, TP, TP, TP, TP, TP, TP, TP, TP,
        TP, TP, TP, TP, TP, KC.LEFT, KC.DOWN , KC.UP, KC.RIGHT, TP,
         TP, TP, TP, TP, TP, TP, TP, TP, TP, TP,
-        NO, NO, TP, TP, TP, TP, TP, TP, NO, NO,
-    ],
-    [  NUMTOG, NUMTOG,NUMTOG, NUMTOG, NUMTOG, KC.KP_SLASH, KC.KP_7, KC.KP_8,KC.KP_9, KC.KP_EQUAL, 
-       NUMTOG, NUMTOG,NUMTOG, NUMTOG, NUMTOG, KC.KP_ASTERISK , KC.KP_4, KC.KP_5,KC.KP_6,TP, 
-       NUMTOG, NUMTOG,NUMTOG, NUMTOG, NUMTOG, KC.KP_0, KC.KP_1, KC.KP_2,KC.KP_3, KC.KP_0, 
-        NO, NO, TP, NUMTOG, TP, TP,  TP, TP, NO ,  NO,
+        NO, NO, TP, TP, TP, TP, TP, TP, NO, NO, ],
+    [ 
+     KC.LBRC, KC.N7, KC.N8,KC.N9, KC.RBRC, TP , TP , TP , TP , TP ,   
+      KC.COLON , KC.N4, KC.N5,KC.N6,KC.KP_PLUS, TP , KC.RSFT, KC.RALT , KC.RTCL , KC.RGUI,
+     TP, KC.N1, KC.N2,KC.N3, KC.BSLASH,   TP , TP , TP , TP , TP ,
+        NO, NO, TP, KC.N0,KC.KP_MINUS,  TP, TP , TP, NO ,  NO,
     
     ]
     ,
-     [  KC.N1,KC.N2,KC.N3,KC.N4,KC.N5,KC.N6,KC.N7,KC.N8,KC.N9,KC.N0,
-       TP, TP, TP, TP, TP, TP , TP , TP,TP, TP,
-        TP, TP, TP, TP, TP, TP, TP, TP, TP, TP,
-        NO, NO, TP, TP, TP, TP, TP, TP, NO, NO,
+    #Symbols
+     [  
+        TP , TP , TP , TP , TP , TP , TP , TP , TP , TP ,
+        TP , TP , TP , TP , TP , TP , TP , TP , TP , TP ,
+        TP , TP , TP , TP , TP , TP , TP , TP , TP , TP ,
+        NO , NO , TP , TP , TP , TP , TP , TP , NO , NO ,
     ]
     ,
+    #FN keys
+    
      [ 
         KC.F12  ,  KC.F7  ,  KC.F8  ,  KC.F9  , TP  ,            TP  ,  TP  ,  TP  ,  TP  , TP  ,
         KC.F11  ,  KC.F4  ,  KC.F5  ,  KC.F6  , TP  ,            TP  ,  TP  ,  TP  ,  TP  , TP  ,
